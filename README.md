@@ -116,7 +116,7 @@ const char* dispatch(const __uint128_t match)
     case "poney"_fnv1a128:
         return "I want one, too!";
     case "elephant"_fnv1a128:
-        return "Not in my appartment please!";
+        return "Not in my apartment please!";
     case "dog"_fnv1a128:
         return "Good puppy!";
     case "kitten"_fnv1a128:
@@ -167,7 +167,7 @@ pmovmskb %xmm0,%eax
 cmp    $0xffff,%eax
 
 jne    0x400bea <unknown>
-mov    $0x41c6b1,%eax           # "Not in my appartment please!" (const char*)
+mov    $0x41c6b1,%eax           # "Not in my apartment please!" (const char*)
 retq
 
 unknown:

@@ -34,7 +34,7 @@ const char* dispatch(const fnv1a128::Type match)
     case "poney"_fnv1a128:
         return "I want one, too!";
     case "elephant"_fnv1a128:
-        return "Not in my appartment please!";
+        return "Not in my apartment please!";
     case "dog"_fnv1a128:
         return "Good puppy!";
     case "kitten"_fnv1a128:
