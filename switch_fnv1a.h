@@ -146,6 +146,21 @@ struct fnv1a
      * @return The fnv-1a hash
      */
     static constexpr Type hash(const std::string& str) { return hash(str.c_str(), str.size()); }
+
+    /**
+     * Compute the Fowler–Noll–Vo hash
+     * @comment stop An optional stop character
+     * @param str The string view
+     * @return The fnv-1a hash
+     */
+    template<typename C>
+    static constexpr Type hash(const std::basic_string_view<C>& str)
+    {
+        // Accept [ unsigned | signed ] char
+        static_assert(std::is_integral<C>::value);
+        static_assert(sizeof(C) == 1);
+        return hash(str.data(), str.size());
+    }
 };
 
 using fnv1a32 = fnv1a<32>;
