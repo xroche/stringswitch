@@ -149,7 +149,6 @@ struct fnv1a
 
     /**
      * Compute the Fowler–Noll–Vo hash
-     * @comment stop An optional stop character
      * @param str The string view
      * @return The fnv-1a hash
      */
@@ -228,6 +227,18 @@ constexpr strhash::Type hash(const T& container, std::size_t size)
 static constexpr strhash::Type hash(const std::string& str)
 {
     return hash(str.c_str(), str.size());
+}
+
+/**
+ * Hash a std::string, using a lowercase modifier
+ */
+template<typename C>
+static constexpr strhash::Type hash(const std::basic_string_view<C>& str)
+{
+    // Accept [ unsigned | signed ] char
+    static_assert(std::is_integral<C>::value);
+    static_assert(sizeof(C) == 1);
+    return hash(str.data(), str.size());
 }
 } // namespace strhash_lower
 
